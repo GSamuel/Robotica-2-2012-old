@@ -24,13 +24,13 @@ public class Pawn extends Piece
 			devY = 1;
 		tempY = pos.y + devY;
 		
-		if(!board.pieceOnPos(pos.x, tempY) && board.onBoard(pos.x, tempY))
+		if(canMove(pos.x, tempY, board))
 		{
 			points.add(new Point(pos.x, tempY));
 			if(!this.hasMoved())
 			{
-				tempY = pos.y + devY*2;
-				if(!board.pieceOnPos(pos.x, tempY) && board.onBoard(pos.x, tempY))
+				tempY += devY;
+				if(canMove(pos.x, tempY, board))
 				{
 					points.add(new Point(pos.x, tempY));
 				}
@@ -40,11 +40,11 @@ public class Pawn extends Piece
 
 		tempY = pos.y + devY;
 		tempX = pos.x - 1;
-		if(board.pieceOnPos(tempX,tempY) && board.getPieceOnPos(tempX,tempY).isOtherTeam(team))
+		if(canAttack(tempX, tempY, board))
 			points.add(new Point(tempX, tempY)); 
 
 		tempX = pos.x + 1;
-		if(board.pieceOnPos(tempX,tempY) && board.getPieceOnPos(tempX,tempY).isOtherTeam(team))
+		if(canAttack(tempX, tempY, board))
 			points.add(new Point(tempX, tempY));
 		
 		return points;

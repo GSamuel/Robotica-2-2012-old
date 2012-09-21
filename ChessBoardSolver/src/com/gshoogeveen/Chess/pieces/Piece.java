@@ -36,7 +36,22 @@ public abstract class Piece
 	public boolean hasMoved()
 	{
 		return hasMoved; 
-	} 
+	}
+	
+	public boolean canAttack(int x, int y, Board board)
+	{
+		return board.pieceOnPos(x,y) && board.getPieceOnPos(x,y).isOtherTeam(team)&& board.onBoard(x, y);
+	}
+	
+	public boolean canMove(int x, int y, Board board)
+	{
+		return !board.pieceOnPos(x, y) && board.onBoard(x, y);
+	}
+	
+	public boolean canAttackOrMove(int x , int y, Board board)
+	{
+		return canMove(x,y,board) || canAttack(x,y,board);
+	}
 	
 	public abstract ArrayList<Point> getAllMoves(Board board);
 }
