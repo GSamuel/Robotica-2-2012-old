@@ -7,35 +7,35 @@ import com.gshoogeveen.Chess.Board.Board;
 
 public abstract class Piece
 {
-	private Team team;
-	private int x,y;
+	protected Team team;
+	protected Point pos;
+	protected boolean hasMoved = false;
 
-	public Piece(Team team, int x, int y)
+	public Piece(Team team, Point pos)
 	{
 		this.team = team;
-		this.x = x;
-		this.y = y;
+		this.pos = (Point) pos.clone();
 	}
 
-	public int getX()
+	public void moveTo(Point pos)
 	{
-		return x;
+		this.pos = pos;
+		hasMoved = true;
 	}
 
-	public int getY()
+	public boolean isOnPos(Point pos)
 	{
-		return y;
+		return this.pos.x == pos.x && this.pos.y == pos.y;
 	}
 	
-	public void moveTo(int x, int y)
+	public boolean isOtherTeam(Team team)
 	{
-		this.x = x;
-		this.y = y;
+		return team.compareTo(team)==0;
 	}
 	
-	public boolean isOnPos(int x,int y)
+	public boolean hasMoved()
 	{
-		return this.x == x && this.y == y;
+		return hasMoved;
 	}
 	
 	public abstract ArrayList<Point> getAllMoves(Board board);
