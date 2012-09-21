@@ -10,7 +10,7 @@ public class Main
 	public static void main(String[] args)
 	{
 		Board board = new Board();
-		System.out.println(board.pieceOnPos(1,0));
+		System.out.println(board.toString());
 
 	}
 
