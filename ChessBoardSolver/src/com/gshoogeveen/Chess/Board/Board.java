@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
+import com.gshoogeveen.Chess.pieces.King;
 import com.gshoogeveen.Chess.pieces.Pawn;
 import com.gshoogeveen.Chess.pieces.Piece;
 import com.gshoogeveen.Chess.pieces.Team;
@@ -25,8 +26,8 @@ public class Board
 			allPieces.add(new Pawn(Team.WHITE, new Point (i,1)));
 			allPieces.add(new Pawn(Team.BLACK, new Point (i,6)));
 		}
-
-		allPieces.add(new Pawn(Team.BLACK, new Point (1,2)));
+		allPieces.add(new King(Team.WHITE, new Point (4,0)));
+		allPieces.add(new King(Team.BLACK, new Point (3,7)));
 	}
 
 	public boolean pieceOnPos(int x, int y)
@@ -63,7 +64,7 @@ public class Board
 	public String toString()
 	{
 		String s = ""+allPieces;
-		s += "\n"+allPieces.get(0).getAllMoves(this);
+		s += "\n"+allPieces.get(17).getAllMoves(this);
 		//s += "\n"+pawn.getAllMoves(this).toString();
 		return s;
 	}

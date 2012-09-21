@@ -16,4 +16,9 @@ public enum Team
 	{
 		return getOther(this);
 	}
+	
+	public boolean isTheSame(Team team)
+	{
+		return this == team;
+	}
 }

@@ -49,11 +49,9 @@ public class Pawn extends Piece
 		
 		return points;
 	}
-
-	
-	public String toString()
+	public String getName()
 	{
-		return "Pawn "+ team.toString()+" "+pos.x+" "+pos.y;
+		return "Pawn";
 	}
 
 }

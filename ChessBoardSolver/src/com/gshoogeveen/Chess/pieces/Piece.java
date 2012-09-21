@@ -30,7 +30,7 @@ public abstract class Piece
 	
 	public boolean isOtherTeam(Team team)
 	{
-		return team.compareTo(team)==0;
+		return this.team.isTheSame(team.getOther());
 	}
 	
 	public boolean hasMoved()
@@ -54,4 +54,10 @@ public abstract class Piece
 	}
 	
 	public abstract ArrayList<Point> getAllMoves(Board board);
+	public abstract String getName();
+	
+	public String toString()
+	{
+		return getName()+" "+ team.toString()+" "+pos.x+" "+pos.y;
+	}
 }
