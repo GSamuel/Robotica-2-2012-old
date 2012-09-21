@@ -1,0 +1,24 @@
+INDEX VERSION 1.126+C:\Users\Administrator\Robotica2\.metadata\.plugins\org.eclipse.jdt.core
+4284093014.index
+3864195121.index
+2245125605.index
+2375370348.index
+1962638457.index
+4050959524.index
+4292095467.index
+239560080.index
+962988169.index
+2479909925.index
+3818029737.index
+1976318416.index
+848959954.index
+3140045379.index
+989118166.index
+1227900102.index
+159265263.index
+2647895306.index
+3648534690.index
+1100034430.index
+529437705.index
+3291799386.index
+4009088449.index
