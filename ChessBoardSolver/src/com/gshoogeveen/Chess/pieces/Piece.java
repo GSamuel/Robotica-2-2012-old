@@ -37,6 +37,10 @@ public abstract class Piece
 	{
 		return hasMoved; 
 	}
+	public boolean setHasMoved(boolean bool)
+	{
+		return hasMoved = bool;
+	}
 	
 	public boolean canAttack(int x, int y, Board board)
 	{
