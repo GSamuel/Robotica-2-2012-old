@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import com.gshoogeveen.Chess.Board.Board;
+import com.gshoogeveen.Chess.Board.Move;
 
 public abstract class Piece
 {
@@ -57,7 +58,7 @@ public abstract class Piece
 		return canMove(x,y,board) || canAttack(x,y,board);
 	}
 	
-	public abstract ArrayList<Point> getAllMoves(Board board);
+	public abstract ArrayList<Move> getAllMoves(Board board);
 	public abstract String getName();
 	public abstract int getValue();
 	

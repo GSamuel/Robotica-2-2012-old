@@ -27,7 +27,7 @@ public class Board
 			allPieces.add(new Pawn(Team.BLACK, new Point (i,6)));
 		}
 		allPieces.add(new King(Team.WHITE, new Point (4,0)));
-		allPieces.add(new King(Team.BLACK, new Point (3,7)));
+		allPieces.add(new King(Team.BLACK, new Point (4,7)));
 	}
 
 	public boolean pieceOnPos(int x, int y)
@@ -61,11 +61,48 @@ public class Board
 		return x >= 0 && x < 8 && y >= 0 && y < 8;
 	}
 	
+	public void move(Move m)
+	{
+		ListIterator<Piece> it = allPieces.listIterator();
+		Piece temp = null;
+		while (it.hasNext())
+		{
+			temp = it.next();
+			if(temp.isOnPos(m.getTo()))
+				it.remove();
+			else if(temp.isOnPos(m.getFrom()))
+				temp.moveTo(m.getTo());
+		}
+	}
+	
 	public String toString()
 	{
 		String s = ""+allPieces;
 		s += "\n"+allPieces.get(17).getAllMoves(this);
 		//s += "\n"+pawn.getAllMoves(this).toString();
+		return s;
+	}
+	
+	public String displayBoard()
+	{
+		String s = "";
+		Piece temp;
+		for(int i = 0; i<8; i++)
+		{
+			for(int j = 0; j<8; j++)
+			{
+				temp = getPieceOnPos(i,j);
+				if(temp != null)
+				{
+					s += "[x]";
+				}
+				else
+				{
+					s += "[ ]";
+				}
+			}
+			s+="\n";
+		}
 		return s;
 	}
 }

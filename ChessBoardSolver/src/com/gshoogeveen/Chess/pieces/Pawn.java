@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.util.ArrayList;
 
 import com.gshoogeveen.Chess.Board.Board;
+import com.gshoogeveen.Chess.Board.Move;
 
 public class Pawn extends Piece
 {
@@ -15,9 +16,9 @@ public class Pawn extends Piece
 	}
 
 	@Override
-	public ArrayList<Point> getAllMoves(Board board)
+	public ArrayList<Move> getAllMoves(Board board)
 	{
-		ArrayList<Point> points = new ArrayList<Point>();
+		ArrayList<Move> moves = new ArrayList<Move>();
 		int tempY,tempX, devY;
 		
 		if(team == Team.BLACK)
@@ -28,13 +29,13 @@ public class Pawn extends Piece
 		
 		if(canMove(pos.x, tempY, board))
 		{
-			points.add(new Point(pos.x, tempY));
+			moves.add(new Move(new Point(pos.x,pos.y),new Point(pos.x, tempY)));
 			if(!this.hasMoved())
 			{
 				tempY += devY;
 				if(canMove(pos.x, tempY, board))
 				{
-					points.add(new Point(pos.x, tempY));
+					moves.add(new Move(new Point(pos.x,pos.y),new Point(pos.x, tempY)));
 				}
 			}
 			
@@ -43,13 +44,13 @@ public class Pawn extends Piece
 		tempY = pos.y + devY;
 		tempX = pos.x - 1;
 		if(canAttack(tempX, tempY, board))
-			points.add(new Point(tempX, tempY)); 
+			moves.add(new Move(new Point(pos.x,pos.y),new Point(tempX, tempY)));
 
 		tempX = pos.x + 1;
 		if(canAttack(tempX, tempY, board))
-			points.add(new Point(tempX, tempY));
+			moves.add(new Move(new Point(pos.x,pos.y),new Point(tempX, tempY)));
 		
-		return points;
+		return moves;
 	}
 	public String getName()
 	{
