@@ -7,7 +7,8 @@ import com.gshoogeveen.Chess.Board.Board;
 
 public class King extends Piece
 {
-
+	public static int value = 10;
+	
 	public King(Team team, Point pos)
 	{
 		super(team, pos);
@@ -30,6 +31,12 @@ public class King extends Piece
 	public String getName()
 	{
 		return "King";
+	}
+
+	@Override
+	public int getValue()
+	{
+		return value;
 	}
 
 }

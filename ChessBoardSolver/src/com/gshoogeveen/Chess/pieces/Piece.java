@@ -59,6 +59,7 @@ public abstract class Piece
 	
 	public abstract ArrayList<Point> getAllMoves(Board board);
 	public abstract String getName();
+	public abstract int getValue();
 	
 	public String toString()
 	{

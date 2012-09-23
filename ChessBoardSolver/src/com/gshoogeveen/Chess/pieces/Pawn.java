@@ -7,6 +7,8 @@ import com.gshoogeveen.Chess.Board.Board;
 
 public class Pawn extends Piece
 {
+	public static int value = 1;
+	
 	public Pawn(Team team, Point pos)
 	{
 		super(team, pos);
@@ -52,6 +54,12 @@ public class Pawn extends Piece
 	public String getName()
 	{
 		return "Pawn";
+	}
+
+	@Override
+	public int getValue()
+	{
+		return value;
 	}
 
 }
