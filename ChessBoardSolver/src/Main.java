@@ -16,6 +16,8 @@ public class Main
 		System.out.println(board.displayBoard());
 		board.move(new Move(new Point(0,1), new Point(0,3)));
 		System.out.println(board.displayBoard());
+		board.move(new Move(new Point(0,3), new Point(0,4)));
+		System.out.println(board.displayBoard());
 
 	}
 

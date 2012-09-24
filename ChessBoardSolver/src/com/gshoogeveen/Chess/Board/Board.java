@@ -75,6 +75,18 @@ public class Board
 		}
 	}
 	
+	public ArrayList<Move> getAllMoves()
+	{
+		ArrayList<Move> moves = new ArrayList<Move>();
+		
+		ListIterator<Piece> it = allPieces.listIterator();
+		while (it.hasNext())
+		{
+			moves.addAll(it.next().getAllMoves(this));
+		}
+		return moves;
+	}
+	
 	public String toString()
 	{
 		String s = ""+allPieces;
@@ -87,14 +99,14 @@ public class Board
 	{
 		String s = "";
 		Piece temp;
-		for(int i = 0; i<8; i++)
+		for(int i = 7; i>=0; i --)
 		{
-			for(int j = 0; j<8; j++)
+			for(int j = 0; j<8; j ++)
 			{
-				temp = getPieceOnPos(i,j);
+				temp = getPieceOnPos(j,i);
 				if(temp != null)
 				{
-					s += "[x]";
+					s += "["+temp.getChar()+"]";
 				}
 				else
 				{
@@ -103,6 +115,7 @@ public class Board
 			}
 			s+="\n";
 		}
+		s+= "\n"+getAllMoves()+"\n";
 		return s;
 	}
 }

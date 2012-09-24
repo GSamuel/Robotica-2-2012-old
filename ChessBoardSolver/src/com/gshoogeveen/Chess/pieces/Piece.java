@@ -10,7 +10,6 @@ public abstract class Piece
 {
 	protected Team team;
 	protected Point pos;
-	protected boolean hasMoved = false;
 
 	public Piece(Team team, Point pos)
 	{
@@ -21,7 +20,6 @@ public abstract class Piece
 	public void moveTo(Point pos)
 	{
 		this.pos = pos;
-		hasMoved = true;
 	}
 
 	public boolean isOnPos(Point pos)
@@ -32,15 +30,6 @@ public abstract class Piece
 	public boolean isOtherTeam(Team team)
 	{
 		return this.team.isTheSame(team.getOther());
-	}
-	
-	public boolean hasMoved()
-	{
-		return hasMoved; 
-	}
-	public boolean setHasMoved(boolean bool)
-	{
-		return hasMoved = bool;
 	}
 	
 	public boolean canAttack(int x, int y, Board board)
@@ -66,4 +55,6 @@ public abstract class Piece
 	{
 		return getName()+" "+ team.toString()+" "+pos.x+" "+pos.y;
 	}
+
+	public abstract char getChar();
 }

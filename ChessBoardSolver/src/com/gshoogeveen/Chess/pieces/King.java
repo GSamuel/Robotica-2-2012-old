@@ -40,4 +40,12 @@ public class King extends Piece
 		return value;
 	}
 
+	public char getChar()
+	{
+		if (team == Team.BLACK)
+			return 'k';
+		else
+			return 'K';
+	}
+
 }
