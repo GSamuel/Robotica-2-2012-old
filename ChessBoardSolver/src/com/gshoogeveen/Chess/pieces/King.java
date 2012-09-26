@@ -47,5 +47,10 @@ public class King extends Piece
 		else
 			return 'K';
 	}
+	
+	public King clone()
+	{
+		return new King(team, pos);
+	}
 
 }

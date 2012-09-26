@@ -79,5 +79,10 @@ public class Pawn extends Piece
 			return false;
 		return true;
 	}
+	
+	public Piece clone()
+	{
+		return new Pawn(team, pos);
+	}
 
 }

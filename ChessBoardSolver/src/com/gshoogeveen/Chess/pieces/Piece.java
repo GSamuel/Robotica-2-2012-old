@@ -32,6 +32,11 @@ public abstract class Piece
 		return this.team.isTheSame(team.getOther());
 	}
 	
+	public boolean isTeam(Team team)
+	{
+		return this.team.isTheSame(team);
+	}
+	
 	public boolean canAttack(int x, int y, Board board)
 	{
 		return board.pieceOnPos(x,y) && board.getPieceOnPos(x,y).isOtherTeam(team)&& board.onBoard(x, y);
@@ -57,4 +62,5 @@ public abstract class Piece
 	}
 
 	public abstract char getChar();
+	public abstract Piece clone();
 }

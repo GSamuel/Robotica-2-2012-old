@@ -23,7 +23,6 @@ public class Move
 	
 	public String toString()
 	{
-		//return ""+from.x;
 		return ""+(char)(from.x+97)+(from.y+1)+"-"+(char)(to.x+97)+(to.y+1);
 	}
 }
