@@ -1,3 +1,6 @@
+*.nxj
+*.nxd
+
 *.class
 *.metadata
 .metadata/*.*
