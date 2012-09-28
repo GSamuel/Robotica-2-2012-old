@@ -11,6 +11,6 @@ public class Heuristic
 	
 	public int getBoardScore(Board board)
 	{
-		return board.getAllMoves(board.getTurn()).size()*2 +(32-board.getAllMoves(board.getTurn().getOther()).size());
+		return board.getTotalPoints();
 	}
 }

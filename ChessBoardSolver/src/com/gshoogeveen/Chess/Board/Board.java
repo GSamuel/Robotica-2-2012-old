@@ -88,7 +88,7 @@ public class Board
 			allPieces.add(newPiece);
 
 		turn = turn.getOther();
-		
+
 		return this;
 	}
 
@@ -141,6 +141,23 @@ public class Board
 		}
 		s += "\n" + getAllMoves(turn) + "\n";
 		return s;
+	}
+
+	public int getTotalPoints()
+	{
+		int test = 0;
+		ListIterator<Piece> it = allPieces.listIterator();
+		Piece temp = null;
+		while (it.hasNext())
+		{
+			temp = it.next();
+			if (temp.isTeam(turn))
+				test += temp.getValue();
+			else
+				test -= temp.getValue();
+
+		}
+		return test;
 	}
 
 	public Board clone()
