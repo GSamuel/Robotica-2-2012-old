@@ -7,7 +7,7 @@ import com.gshoogeveen.Chess.Solver.Heuristic;
 
 public class Main
 {
-
+ 
 	/**
 	 * @param args
 	 */
