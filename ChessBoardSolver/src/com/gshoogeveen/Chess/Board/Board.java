@@ -2,6 +2,7 @@ package com.gshoogeveen.Chess.Board;
 
 import java.awt.Point;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.ListIterator;
 
 import com.gshoogeveen.Chess.pieces.King;
@@ -11,7 +12,8 @@ import com.gshoogeveen.Chess.pieces.Team;
 
 public class Board
 {
-	ArrayList<Piece> allPieces;
+	LinkedList<Piece> allPieces;
+	LinkedList<Move> moves;
 	private Team turn = Team.WHITE;
 
 	public Board()
@@ -19,15 +21,18 @@ public class Board
 		init();
 	}
 
-	public Board(ArrayList<Piece> allPieces, Team turn)
+	public Board(Board board)
 	{
-		this.allPieces = allPieces;
-		this.turn = turn;
+		this.allPieces = (LinkedList<Piece>) board.allPieces.clone();
+		this.turn = board.turn;
+		this.moves = (LinkedList<Move>) board.moves.clone();
 	}
 
 	private void init()
 	{
-		allPieces = new ArrayList<Piece>();
+		moves = new LinkedList<Move>();
+		
+		allPieces = new LinkedList<Piece>();
 		for (int i = 0; i < 8; i++)
 		{
 			allPieces.add(new Pawn(Team.WHITE, new Point(i, 1)));
@@ -111,6 +116,9 @@ public class Board
 	{
 		return turn;
 	}
+	
+	
+	
 
 	public String toString()
 	{
@@ -143,25 +151,8 @@ public class Board
 		return s;
 	}
 
-	public int getTotalPoints()
-	{
-		int test = 0;
-		ListIterator<Piece> it = allPieces.listIterator();
-		Piece temp = null;
-		while (it.hasNext())
-		{
-			temp = it.next();
-			if (temp.isTeam(turn))
-				test += temp.getValue();
-			else
-				test -= temp.getValue();
-
-		}
-		return test;
-	}
-
 	public Board clone()
 	{
-		return new Board((ArrayList<Piece>) allPieces.clone(), turn);
+		return new Board(this);
 	}
 }
