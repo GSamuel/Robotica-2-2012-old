@@ -1,5 +1,7 @@
 *.nxj
 *.nxd
+*.classpath
+*.project
 
 *.class
 *.metadata
